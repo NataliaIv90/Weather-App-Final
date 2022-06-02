@@ -47,23 +47,6 @@ h2 {
   );
 }
 
-.forecast-icon {
-  width: 55%;
-  display: block;
-
-  margin: 0 auto;
-}
-
-#weather-icon {
-  width: 37%;
-  display: block;
-  padding: 0px;
-  margin: 0 auto;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50px;
-  box-shadow: 3px 3px 5px rgba(131, 131, 131, 0.2);
-}
-
 .search-bar {
   display: inline;
   margin: 0;
@@ -91,9 +74,70 @@ h2 {
   text-align: right;
   padding: 0;
 }
+
+.current-weather-details {
+  display: inline-block;
+  width: 115px;
+  margin: 0px;
+}
+
+.current-weather-font {
+  font-size: 11px;
+  text-align: center;
+}
+
+.forecast-icon {
+  width: 55%;
+  display: block;
+
+  margin: 0 auto;
+}
+
+.future-weather {
+  border: 1px solid rgba(0, 0, 0, 0);
+  transition: all 150ms ease-in;
+}
+
+.future-weather:hover {
+  background-color: rgba(155, 155, 155, 0.1);
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.future-weather > div {
+  font-size: 18px;
+  line-height: 33px;
+  text-align: center;
+  font-weight: 300;
+  margin-top: 10px;
+  transition: all 150ms ease-in;
+}
+
+.future-weather > .left {
+  text-align: left;
+  margin: 10px 0px 10px 15px;
+}
+
 #search-bar-wrap {
   margin: 15px 0px 10px 1px;
   padding: 0px;
+}
+
+#input-location {
+  width: 292px;
+  line-height: 30px;
+  padding-left: 10px;
+  transition: all 150ms ease-in-out;
+}
+
+#weather-icon {
+  width: 37%;
+  display: block;
+  padding: 0px;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  box-shadow: 3px 3px 5px rgba(131, 131, 131, 0.2);
 }
 
 #weather-forecast-wrapper {
@@ -117,48 +161,6 @@ h2 {
   margin: 0;
 }
 
-.current-weather-details {
-  display: inline-block;
-  width: 115px;
-  margin: 0px;
-}
-
-.current-weather-font {
-  font-size: 11px;
-  text-align: center;
-}
-
-.future-weather > div {
-  font-size: 18px;
-  line-height: 33px;
-  text-align: center;
-  font-weight: 300;
-  margin-top: 10px;
-  transition: all 150ms ease-in;
-}
-
-.future-weather > .left {
-  text-align: left;
-  margin: 10px 0px 10px 15px;
-}
-
-.future-weather {
-  border: 1px solid rgba(0, 0, 0, 0);
-  transition: all 150ms ease-in;
-}
-
-.future-weather:hover {
-  background-color: rgba(155, 155, 155, 0.1);
-  cursor: pointer;
-  border-radius: 3px;
-}
-
-#input-location {
-  width: 292px;
-  line-height: 30px;
-  padding-left: 10px;
-  transition: all 150ms ease-in-out;
-}
 #current-weather-top {
   height: 80px;
 }
@@ -170,14 +172,14 @@ h2 {
   padding: 5px;
 }
 
+#current-weather-details {
+  padding: 10px 0;
+}
+
 #input-location:hover,
 #current-weather:hover,
 .future-weather:hover,
 button:hover {
   border: 1px solid #17a2b8;
   box-shadow: 5px 5px 8px rgba(128, 128, 128, 0.9);
-}
-
-#current-weather-details {
-  padding: 10px 0;
 }
