@@ -1,0 +1,183 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 20px;
+}
+
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+p,
+li,
+ul,
+input,
+button,
+.future-weather > div {
+  margin: 0px;
+  padding: 0px;
+}
+
+h1 {
+  font-size: 34px;
+  font-weight: 400;
+  text-align: left;
+}
+
+h2 {
+  text-align: right;
+  font-size: 27px;
+  font-weight: 400;
+  padding: 0;
+}
+
+.plain-border {
+  border: 1px solid #fff;
+  box-shadow: 5px 8px 6px rgba(131, 131, 131, 0.3);
+  border-radius: 5px;
+}
+
+.wrap {
+  max-width: 400px;
+  background: radial-gradient(
+    592px at 48.2% 50%,
+    rgba(255, 255, 249, 0.6) 0%,
+    rgb(160, 199, 254) 74.6%
+  );
+}
+
+.forecast-icon {
+  width: 55%;
+  display: block;
+
+  margin: 0 auto;
+}
+
+#weather-icon {
+  width: 37%;
+  display: block;
+  padding: 0px;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  box-shadow: 3px 3px 5px rgba(131, 131, 131, 0.2);
+}
+
+.search-bar {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.search-bar-button {
+  color: #000;
+  background-color: rgba(128, 128, 128, 0.1);
+  height: 33px;
+  width: 33px;
+  transition: all 150ms ease-in;
+}
+
+.search-bar-button:hover {
+  color: #fff;
+  background-color: rgba(75, 119, 181, 0.4);
+}
+
+.current-weather-details .left {
+  padding: 0 5px;
+  text-align: left;
+}
+.current-weather-details .right {
+  text-align: right;
+  padding: 0;
+}
+#search-bar-wrap {
+  margin: 15px 0px 10px 1px;
+  padding: 0px;
+}
+
+#weather-forecast-wrapper {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding-left: 14px;
+  padding-right: 15px;
+}
+
+#current-weather-city,
+#current-weather-temperature {
+  display: inline-block;
+}
+
+#current-weather-city {
+  width: 70%;
+  padding: 0px 5px;
+}
+#current-weather-temperature {
+  width: 25%;
+  margin: 0;
+}
+
+.current-weather-details {
+  display: inline-block;
+  width: 115px;
+  margin: 0px;
+}
+
+.current-weather-font {
+  font-size: 11px;
+  text-align: center;
+}
+
+.future-weather > div {
+  font-size: 18px;
+  line-height: 33px;
+  text-align: center;
+  font-weight: 300;
+  margin-top: 10px;
+  transition: all 150ms ease-in;
+}
+
+.future-weather > .left {
+  text-align: left;
+  margin: 10px 0px 10px 15px;
+}
+
+.future-weather {
+  border: 1px solid rgba(0, 0, 0, 0);
+  transition: all 150ms ease-in;
+}
+
+.future-weather:hover {
+  background-color: rgba(155, 155, 155, 0.1);
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+#input-location {
+  width: 292px;
+  line-height: 30px;
+  padding-left: 10px;
+  transition: all 150ms ease-in-out;
+}
+#current-weather-top {
+  height: 80px;
+}
+#current-weather-bottom {
+  margin-top: 5px;
+}
+
+#current-weather {
+  padding: 5px;
+}
+
+#input-location:hover,
+#current-weather:hover,
+.future-weather:hover,
+button:hover {
+  border: 1px solid #17a2b8;
+  box-shadow: 5px 5px 8px rgba(128, 128, 128, 0.9);
+}
+
+#current-weather-details {
+  padding: 10px 0;
+}
