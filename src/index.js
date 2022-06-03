@@ -55,6 +55,7 @@ function changeLocation(event) {
   document.querySelector("h1").innerHTML = inputLocation.value;
 }
 
+
 let searchForm = document.querySelector("#location-form");
 searchForm.addEventListener("submit", changeLocation);
 
