@@ -52,11 +52,7 @@ currentTime();
 function changeLocation(event) {
   event.preventDefault();
   let inputLocation = document.querySelector("#search-city-input");
-  if (inputLocation.value === null) {
-    document.querySelector("h1").innerHTML = inputLocation.value;
-  } else {
-    alert("Please, enter a city");
-  }
+  document.querySelector("h1").innerHTML = inputLocation.value;
 }
 let searchForm = document.querySelector("#location-form");
 searchForm.addEventListener("submit", changeLocation);
