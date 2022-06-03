@@ -23,61 +23,81 @@
     ></script>
     <title>Weather App 🌡</title>
   </head>
+
   <body>
     <div class="container wrap plain-border">
-      <ul id="search-bar-wrap">
-        <li class="search-bar">
+      <!-- Search bar -->
+      <div id="search-bar-wrap">
+        <form id="location-form">
           <input
             type="text"
             placeholder="Enter a city"
             class="plain-border"
-            id="input-location"
+            id="search-city-input"
+            autocomplete="off"
+            autofocus="on"
           />
-        </li>
-        <li class="search-bar">
+          <!--  -->
+
           <button
-            class="btn btn-sm header-section plain-border search-bar-button"
+            class="add-on plain-border search-bar-button"
             id="search-button"
-            type="button"
+            type="submit"
           >
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-        </li>
-        <li class="search-bar">
+
           <button
-            type="button"
+            type="submit"
             id="current-location-button"
-            class="btn btn-sm header-section plain-border search-bar-button"
+            class="plain-border search-bar-button"
           >
             <i class="fa-solid fa-location-dot"></i>
           </button>
-        </li>
-      </ul>
+        </form>
+      </div>
+      <!-- Main section with current information -->
 
       <div>
         <div id="current-weather" class="plain-border">
-          <ul id="current-weather-top">
-            <li id="current-weather-city">
+          <!-- City name + current temperature           -->
+
+          <div class="row" id="current-weather-top">
+            <div class="col-9" id="current-weather-city">
               <h1>Khmel'nytsky</h1>
-            </li>
-            <li id="current-weather-temperature">
+            </div>
+            <div class="col-3" id="current-weather-temperature">
+              <br />
               <h2>24℃</h2>
-            </li>
-          </ul>
+            </div>
+          </div>
+
+          <!-- Current weather details -->
+
           <ul id="current-weather-bottom">
+            <!-- Left side -->
+
             <li class="current-weather-details">
               <ul>
-                <li class="current-weather-font">Thursday</li>
-                <li class="current-weather-font">12.05.2022 21:40</li>
+                <li class="current-weather-font" id="currentDay">Thursday</li>
+                <li class="current-weather-font" id="currentDate">
+                  12.05.2022 21:40
+                </li>
               </ul>
             </li>
+
+            <!-- center part -->
+
             <li class="current-weather-details">
               <img
-                src="images/rain.svg"
+                src="images/f-sun.svg"
                 id="weather-icon"
                 alt="rainy weather"
               />
             </li>
+
+            <!-- right side -->
+
             <li class="current-weather-details">
               <ul>
                 <li>
@@ -85,13 +105,20 @@
                     <div class="col-8 current-weather-font right">
                       Precipitation:
                     </div>
-                    <div class="col-4 current-weather-font left">48%</div>
+                    <div
+                      class="col-4 current-weather-font left"
+                      id="precipitation"
+                    >
+                      48%
+                    </div>
                   </div>
                 </li>
                 <li>
                   <div class="row">
                     <div class="col-7 current-weather-font right">Wind:</div>
-                    <div class="col-5 current-weather-font left">7km/h</div>
+                    <div class="col-5 current-weather-font left" id="wind">
+                      7km/h
+                    </div>
                   </div>
                 </li>
                 <li>
@@ -99,78 +126,105 @@
                     <div class="col-8 current-weather-font right">
                       Hymidity:
                     </div>
-                    <div class="col-4 current-weather-font left">80%</div>
+                    <div class="col-4 current-weather-font left" id="hymidity">
+                      80%
+                    </div>
                   </div>
                 </li>
               </ul>
             </li>
           </ul>
         </div>
+
+        <!-- weather forecast for 5 days -->
+
         <div class="plain-border" id="weather-forecast-wrapper">
           <ul>
             <li>
               <div class="row future-weather">
                 <div class="col-2 left">Fri</div>
                 <div class="col-2">13/05</div>
-                <div class="col-2">
-                  <img class="forecast-icon" src="images/f-sun.svg" alt="" />
+                <div class="col-3">
+                  <img
+                    class="forecast-icon"
+                    src="images/animated/cloudy-day-1.svg"
+                    alt=""
+                  />
                 </div>
                 <div class="col-2">+5℃</div>
-                <div class="col-1">...</div>
                 <div class="col-2">+15℃</div>
               </div>
             </li>
+
             <li>
               <div class="row future-weather">
                 <div class="col-2 left">Sat</div>
                 <div class="col-2">14/05</div>
-                <div class="col-2">
-                  <img src="images/f-storm.svg" class="forecast-icon" alt="" />
+                <div class="col-3">
+                  <img
+                    src="images/animated/cloudy-day-3.svg"
+                    class="forecast-icon"
+                    alt=""
+                  />
                 </div>
                 <div class="col-2">+5℃</div>
-                <div class="col-1">...</div>
                 <div class="col-2">+15℃</div>
               </div>
             </li>
+
             <li>
               <div class="row future-weather">
                 <div class="col-2 left">Sun</div>
                 <div class="col-2">15/05</div>
-                <div class="col-2">
-                  <img src="images/f-cloudy.svg" class="forecast-icon" alt="" />
+                <div class="col-3">
+                  <img
+                    src="images/animated/day.svg"
+                    class="forecast-icon"
+                    alt=""
+                  />
                 </div>
                 <div class="col-2">+5℃</div>
-                <div class="col-1">...</div>
                 <div class="col-2">+15℃</div>
               </div>
             </li>
+
             <li>
               <div class="row future-weather">
                 <div class="col-2 left">Mon</div>
                 <div class="col-2">16/05</div>
-                <div class="col-2">
-                  <img src="images/f-rain2.svg" class="forecast-icon" alt="" />
+                <div class="col-3">
+                  <img
+                    src="images/animated/thunder.svg"
+                    class="forecast-icon"
+                    alt=""
+                  />
                 </div>
                 <div class="col-2">+5℃</div>
-                <div class="col-1">...</div>
                 <div class="col-2">+15℃</div>
               </div>
             </li>
+
             <li>
               <div class="row future-weather">
                 <div class="col-2 left">Tue</div>
                 <div class="col-2">16/05</div>
-                <div class="col-2">
-                  <img src="images/f-storm.svg" alt="" class="forecast-icon" />
+                <div class="col-3">
+                  <img
+                    src="images/animated/snowy-4.svg"
+                    alt=""
+                    class="forecast-icon"
+                  />
                 </div>
                 <div class="col-2">+5℃</div>
-                <div class="col-1">...</div>
                 <div class="col-2">+15℃</div>
               </div>
             </li>
           </ul>
         </div>
       </div>
+
+      <!-- footer with my contact info -->
+
       <footer>
         <div id="footer">
           Coded by
