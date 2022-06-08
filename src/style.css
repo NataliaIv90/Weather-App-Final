@@ -27,27 +27,13 @@ h1 {
 
 h2 {
   text-align: right;
-  font-size: 27px;
+  font-size: 22px;
   font-weight: 400;
   padding: 0;
   line-height: 80px;
   display: inline;
   vertical-align: bottom;
-}
-
-a {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.4);
-  padding: 1px 3px;
-}
-
-a:hover {
-  color: rgba(0, 0, 0, 0.8);
-  background: linear-gradient(
-    rgba(0, 0, 255, 0.5) 30%,
-    rgba(255, 255, 0, 0.5) 80%
-  );
-  border-radius: 5px;
+  margin-right: 0;
 }
 
 .plain-border {
@@ -119,7 +105,7 @@ a:hover {
 }
 
 .future-weather > div {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 33px;
   text-align: center;
   font-weight: 300;
@@ -137,6 +123,10 @@ a:hover {
   padding: 0px;
 }
 
+#location-form {
+  display: inline-block;
+}
+
 #search-city-input {
   width: 292px;
   line-height: 30px;
@@ -151,6 +141,19 @@ a:hover {
   margin: 0 auto;
 }
 
+#scale-link {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+#scale-link :hover {
+  color: #000;
+  text-decoration: underline;
+}
+
 #weather-forecast-wrapper {
   margin-bottom: 15px;
   margin-top: 15px;
@@ -162,6 +165,13 @@ a:hover {
 #current-weather-temperature {
   display: inline;
   height: 80px;
+}
+
+#current-weather,
+#current-temp,
+#temperature-scale {
+  margin: 0;
+  padding: 0;
 }
 
 #current-weather-city {
@@ -202,4 +212,19 @@ button:hover {
   text-align: center;
   color: rgba(0, 0, 0, 0.4);
   margin: 7px;
+}
+
+#footer-link {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.4);
+  padding: 1px 3px;
+}
+
+#footer-link:hover {
+  color: rgba(0, 0, 0, 0.8);
+  background: linear-gradient(
+    rgba(0, 0, 255, 0.5) 30%,
+    rgba(255, 255, 0, 0.5) 80%
+  );
+  border-radius: 5px;
 }
