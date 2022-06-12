@@ -2,6 +2,40 @@
 
 // ⏰Feature #1
 // In your project, display the current date and time using JavaScript: Tuesday 16:00
+
+//formatting date parameters if they<10 (ex "4" => "04")
+function formatDate(value) {
+  if (value < 10) {
+    value = `0${value}`;
+    return value;
+  }
+}
+
+//function for updating innerHTML
+function updateValue(inputID, inputValue) {
+  let input = document.querySelector(inputID);
+  input.innerHTML = inputValue;
+}
+
+function changeTemperature(responce) {
+  let location = responce.data.name;
+  updateValue("#cityName", location);
+
+  let currentTemperature = Math.round(responce.data.main.temp);
+  currentTemperature = `${currentTemperature}℃`;
+  updateValue("#temperature", currentTemperature);
+
+  let currentHymidity = `${responce.data.main.humidity}%`;
+  updateValue("#hymidity", currentHymidity);
+
+  let currentWind = Math.round(responce.data.wind.speed);
+  currentWind = `${currentWind}km/h`;
+  updateValue("#wind", currentWind);
+
+  let currentClouds = `${responce.data.clouds.all}%`;
+  updateValue("#clouds", currentClouds);
+}
+
 function currentTime() {
   const now = new Date();
   const days = [
@@ -31,11 +65,23 @@ function currentTime() {
   ];
 
   const curDay = days[now.getDay()];
+  let curDate = now.getDate();
+  formatDate(curDate);
+  let curHours = now.getHours();
+  formatDate(curHours);
+  let curMinutes = now.getMinutes();
+  formatDate(curMinutes);
+
+  // const cDate = `
+  // ${now.getDate()}
+  // ${months[now.getMonth()]}
+  // ${now.getFullYear()}
+  // ${now.getHours()}:${now.getMinutes()}`;
   const cDate = `
-  ${now.getDate()} 
-  ${months[now.getMonth()]}
+  ${curDate} 
+  ${months[now.getMonth()]} 
   ${now.getFullYear()} 
-  ${now.getHours()}:${now.getMinutes()}`;
+  ${curHours}:${curMinutes}`;
 
   let currentDay = document.querySelector("#currentDay");
   currentDay.innerHTML = curDay;
@@ -49,13 +95,13 @@ currentTime();
 // 🕵️‍♀️Feature #2
 // Add a search engine, when searching for a city (i.e. Paris), display the city name on the page after the user submits the form.
 
-function updateRandomTemperature() {
-  let temperature = Math.random();
-  let scale = document.querySelector("#scale");
-  temperature = temperature * 100 - 50;
-  temperature = Math.round(temperature);
-  document.querySelector("#temperature").innerHTML = temperature;
-}
+// function updateRandomTemperature() {
+//   let temperature = Math.random();
+//   let scale = document.querySelector("#scale");
+//   temperature = temperature * 100 - 50;
+//   temperature = Math.round(temperature);
+//   document.querySelector("#temperature").innerHTML = temperature;
+// }
 
 function updateLocation(inputLocation) {
   document.querySelector("h1").innerHTML = inputLocation;
@@ -66,31 +112,78 @@ function changeLocation(event) {
   let inputLocation = document.querySelector("#search-city-input");
   if (inputLocation.value.length > 0) {
     updateLocation(inputLocation.value);
-    updateRandomTemperature();
+    curLocation = inputLocation.value;
   } else {
     updateLocation("Khmel'nytsky");
-    updateRandomTemperature();
+    curLocation = "Khmel'nytsky";
     alert("Please, enter a city");
   }
+
+  const apiKey = "bd6a33bf1ae4ff07cbfe080ca9b11f66";
+  const units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${curLocation}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(changeTemperature);
+  console.log(apiUrl);
 }
 
 let searchForm = document.querySelector("#location-form");
 searchForm.addEventListener("submit", changeLocation);
 
+// 🙀 Bonus point:
+// Add a Current Location button. When clicking on it, it uses the Geolocation API to get your GPS coordinates and display and the city and current temperature using the OpenWeather API.
+
+//api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+
+https: function showPositionWeather(position) {
+  let lon = position.coords.longitude;
+  let lat = position.coords.latitude;
+
+  inputLocation = document.querySelector("#search-city-input");
+
+  const apiKey = "bd6a33bf1ae4ff07cbfe080ca9b11f66";
+  const units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(changeTemperature);
+  console.log(apiUrl);
+}
+
+function currentPositionWeather(event) {
+  event.submitDefault;
+  navigator.geolocation.getCurrentPosition(showPositionWeather);
+}
+
+let geolocationButton = document.querySelector("#current-location-button");
+geolocationButton.addEventListener("click", currentPositionWeather);
+
+// !!!!!!
+// --------
 // 🙀Bonus Feature
 // Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
 // ℃ ℉
 
-function updateScaleF() {
-  window.location = "./indexF.html";
-}
+// function updateScaleF() {
+//   window.location = "./indexF.html";
+// }
 
-function updateScale() {
-  window.location = "./index.html";
-}
+// function updateScale() {
+//   window.location = "./index.html";
+// }
 
-let buttonF = document.querySelector("#buttonF");
-buttonF.addEventListener("click", updateScale);
+// let buttonF = document.querySelector("#buttonF");
+// buttonF.addEventListener("click", updateScale);
 
-let buttonC = document.querySelector("#buttonC");
-buttonF.addEventListener("click", updateScaleF);
+// let buttonC = document.querySelector("#buttonC");
+// buttonF.addEventListener("click", updateScaleF);
+// ----------
+// !!!!!!!!
+// 👨‍🏫 Your task
+// In your project, when a user searches for a city (example: New York), it should display the name of the city on the result page and the current temperature of the city.
+
+// Please note: there's no need to include a temperature conversion at the moment. This will be taught later on in the course.
+
+//api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+
+// 🙀 Bonus point:
+// Add a Current Location button. When clicking on it, it uses the Geolocation API to get your GPS coordinates and display and the city and current temperature using the OpenWeather API.
+
+// https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}

@@ -21,6 +21,7 @@
       src="https://kit.fontawesome.com/ed623032c8.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Weather App 🌡</title>
   </head>
 
@@ -46,18 +47,14 @@
           >
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-
-          <button
-            onclick="updateScaleF()"
-            type="button"
-            id="temperature-scale-button buttonC"
-            class="plain-border search-bar-button"
-            value="℃"
-          >
-            ℉
-            <!-- <i class="fa-solid fa-location-dot"></i> -->
-          </button>
         </form>
+        <button
+          type="button"
+          id="current-location-button"
+          class="plain-border search-bar-button"
+        >
+          <i class="fa-solid fa-location-dot"></i>
+        </button>
       </div>
       <!-- Main section with current information -->
 
@@ -67,14 +64,11 @@
 
           <div class="row" id="current-weather-top">
             <div class="col-9" id="current-weather-city">
-              <h1>Khmel'nytsky</h1>
+              <h1 id="cityName">Khmel'nytsky</h1>
             </div>
             <div class="col-3" id="current-weather-temperature">
               <br />
-              <h2>
-                <span id="temperature">24</span>
-                <span id="scale">℃</span>
-              </h2>
+              <h2 id="temperature">24℃</h2>
             </div>
           </div>
 
@@ -96,7 +90,7 @@
 
             <li class="current-weather-details">
               <img
-                src="images/f-rain2.svg"
+                src="images/rain.svg"
                 id="weather-icon"
                 alt="rainy weather"
               />
@@ -108,13 +102,8 @@
               <ul>
                 <li>
                   <div class="row">
-                    <div class="col-8 current-weather-font right">
-                      Precipitation:
-                    </div>
-                    <div
-                      class="col-4 current-weather-font left"
-                      id="precipitation"
-                    >
+                    <div class="col-7 current-weather-font right">Clouds:</div>
+                    <div class="col-5 current-weather-font left" id="clouds">
                       48%
                     </div>
                   </div>
@@ -129,10 +118,10 @@
                 </li>
                 <li>
                   <div class="row">
-                    <div class="col-8 current-weather-font right">
-                      Hymidity:
+                    <div class="col-7 current-weather-font right">
+                      Humidity:
                     </div>
-                    <div class="col-4 current-weather-font left" id="hymidity">
+                    <div class="col-5 current-weather-font left" id="hymidity">
                       80%
                     </div>
                   </div>
