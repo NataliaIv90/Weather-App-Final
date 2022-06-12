@@ -110,6 +110,7 @@ function updateLocation(inputLocation) {
 function changeLocation(event) {
   event.preventDefault();
   let inputLocation = document.querySelector("#search-city-input");
+  let curLocation;
   if (inputLocation.value.length > 0) {
     updateLocation(inputLocation.value);
     curLocation = inputLocation.value;
@@ -132,13 +133,13 @@ searchForm.addEventListener("submit", changeLocation);
 // 🙀 Bonus point:
 // Add a Current Location button. When clicking on it, it uses the Geolocation API to get your GPS coordinates and display and the city and current temperature using the OpenWeather API.
 
-//api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+//https:api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 
-https: function showPositionWeather(position) {
+function showPositionWeather(position) {
   let lon = position.coords.longitude;
   let lat = position.coords.latitude;
 
-  inputLocation = document.querySelector("#search-city-input");
+  let inputLocation = document.querySelector("#search-city-input");
 
   const apiKey = "bd6a33bf1ae4ff07cbfe080ca9b11f66";
   const units = "metric";
