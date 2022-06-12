@@ -4,6 +4,7 @@
 // In your project, display the current date and time using JavaScript: Tuesday 16:00
 
 //formatting date parameters if they<10 (ex "4" => "04")
+
 function formatDate(value) {
   if (value < 10) {
     value = `0${value}`;
@@ -34,6 +35,31 @@ function changeTemperature(responce) {
 
   let currentClouds = `${responce.data.clouds.all}%`;
   updateValue("#clouds", currentClouds);
+
+  const weatherDescriptionIcon = {
+    "clear sky": "clearSky.svg",
+    "few clouds": "fewClouds.svg",
+    "scattered clouds": "clouds.svg",
+    "broken clouds": "clouds.svg",
+    "shower rain": "showerRain.svg",
+    "light rain": "showerRain.svg",
+    rain: "rain.svg",
+    thunderstorm: "thunderstorm.svg",
+    snow: "snow.svg",
+    mist: "mist.svg",
+    "overcast clouds": "clouds.svg",
+  };
+
+  let weatherIconKey = responce.data.weather[0].description;
+  let weatherIcon = `<img
+      src="images/${weatherDescriptionIcon[weatherIconKey]}"
+      id="weather-icon"
+      alt="${weatherIconKey}"
+    />`;
+  updateValue("#current-weather-icon", weatherIcon);
+
+  // weatherIcon = `<img src="images/${weatherIcon}" id="weather-icon" alt="rainy weather" />`;
+  // updateValue("#current-weather-icon", weatherIcon);
 }
 
 function currentTime() {
@@ -72,7 +98,7 @@ function currentTime() {
   let curMinutes = now.getMinutes();
   formatDate(curMinutes);
 
-  // const cDate = `
+  // const cDate = `;
   // ${now.getDate()}
   // ${months[now.getMonth()]}
   // ${now.getFullYear()}
